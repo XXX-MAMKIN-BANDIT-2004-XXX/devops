@@ -1,38 +1,10 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <string>
 #include <sstream>
+#include "bubblesort.h"
 
-void bubbleSort(std::vector<int>& arr) {
-    int n = arr.size();
-    bool swapped;
-
-    for (int i = 0; i < n - 1; ++i) {
-        swapped = false;
-
-        for (int j = 0; j < n - i - 1; ++j) {
-            if (arr[j] > arr[j + 1]) {
-                std::swap(arr[j], arr[j + 1]);
-                swapped = true;
-            }
-        }
-
-        if (!swapped) {
-            break;
-        }
-    }
-}
-
-void vectorDisplay(std::vector<int> arr)
-{
-    for (int num : arr)
-    {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-}
-
-int main()
+void main()
 {
     std::vector<int> inputNumbers;
     int  value = 0;
@@ -53,15 +25,15 @@ int main()
             else
                 break;
         }
-        else 
+        else
             inputNumbers.push_back(value);
     }
 
     std::cout << "Vector before sorting: ";
-    vectorDisplay(inputNumbers);
-    
-    bubbleSort(inputNumbers);
+    BubbleSort::vectorDisplay(inputNumbers);
+
+    BubbleSort::sort(inputNumbers);
 
     std::cout << "Vector after sorting: ";
-    vectorDisplay(inputNumbers);
+    BubbleSort::vectorDisplay(inputNumbers);
 }
