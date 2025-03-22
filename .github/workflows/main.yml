@@ -1,4 +1,4 @@
-name: Build, Test, and Package
+name: Building, testing and packaging
 
 on: workflow_dispatch
   #push:
@@ -17,14 +17,14 @@ jobs:
 
       - name: Run Makefile
         run: |
-          cd ./cicd
+          cd ./dev/devops-master/cicd
           make 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-output
           path: | 
-            ./bin
+            ./dev/devops-master/bin
             test
 
   run-test:
