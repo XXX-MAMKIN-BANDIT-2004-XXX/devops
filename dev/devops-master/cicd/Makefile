@@ -1,12 +1,19 @@
 CXX = g++
 CXXFLAGS = -Wall -g
-TARGET = devops
+TARGET = BubbleSort
 
-$(TARGET): devops.o
-	$(CXX) $(CXXFLAGS) -o $(TARGET) devops.o
+Main: $(TARGET).o Main.o Test.o
+	$(CXX) $(CXXFLAGS) -o ../bin/Main Main.o $(TARGET).o
+	$(CXX) $(CXXFLAGS) -o ../bin/Test Test.o $(TARGET).o
 
-devops.o: devops.cpp
-	$(CXX) $(CXXFLAGS) -c devops.cpp
+$(TARGET).o: 
+	$(CXX) $(CXXFLAGS) -c ../src/$(TARGET).cpp
 
+Main.o:
+	$(CXX) $(CXXFLAGS) -c ../src/Main.cpp
+	
+Test.o:
+	$(CXX) $(CXXFLAGS) -c ../src/Test.cpp
+	
 clean:
-	rm -f *.o $(TARGET)
+	rm -f *.o $(TARGET) Test 
