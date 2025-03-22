@@ -17,14 +17,14 @@ jobs:
 
       - name: Run Makefile
         run: |
-          cd ./dev/devops-master/cicd
+          cd ../dev/devops-master/cicd
           make 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-output
           path: | 
-            ./dev/devops-master/bin
+            ./bin
             test
 
   run-test:
