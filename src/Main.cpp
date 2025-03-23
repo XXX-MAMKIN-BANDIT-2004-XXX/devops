@@ -4,7 +4,7 @@
 #include <sstream>
 #include "BubbleSort.h"
 
-void main()
+int main()
 {
     std::vector<int> inputNumbers;
     int  value = 0;
@@ -36,4 +36,6 @@ void main()
 
     std::cout << "Vector after sorting: ";
     BubbleSort::vectorDisplay(inputNumbers);
+
+    return 0;
 }
