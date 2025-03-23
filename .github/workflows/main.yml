@@ -82,3 +82,17 @@ jobs:
         with:
           name: deb-package
           path: BubbleSort.deb
+          
+      - name: Create and Upload Release 
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.ARTYOM_SECRET }}
+        with:
+          tag_name: v1.0.0
+          name: Release v1.0.0
+          body: Automated release
+          prerelease: false
+          overwrite: true 
+          files: |
+            BubbleSort.deb
