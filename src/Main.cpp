@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
-#include "bubblesort.h"
+#include "BubbleSort.h"
 
 void main()
 {
