@@ -67,13 +67,13 @@ jobs:
           mkdir -p BubbleSort/DEBIAN
           mkdir -p BubbleSort/usr/bin
           cp -r ./build/bin BubbleSort/usr/bin
-          echo "Package: BubbleSort" > var9/DEBIAN/control
-          echo "Version: 1.0" >> var9/DEBIAN/control
-          echo "Section: utils" >> var9/DEBIAN/control
-          echo "Priority: optional" >> var9/DEBIAN/control
-          echo "Architecture: all" >> var9/DEBIAN/control
-          echo "Maintainer: Ya" >> var9/DEBIAN/control
-          echo "Description: BubbleSort" >> var9/DEBIAN/control
+          echo "Package: BubbleSort" > BubbleSort/DEBIAN/control
+          echo "Version: 1.0" >> BubbleSort/DEBIAN/control
+          echo "Section: utils" >> BubbleSort/DEBIAN/control
+          echo "Priority: optional" >> BubbleSort/DEBIAN/control
+          echo "Architecture: all" >> BubbleSort/DEBIAN/control
+          echo "Maintainer: Ya" >> BubbleSort/DEBIAN/control
+          echo "Description: BubbleSort" >> BubbleSort/DEBIAN/control
           dpkg-deb --build BubbleSort
         #mv BubbleSort.deb ./cicd
 
