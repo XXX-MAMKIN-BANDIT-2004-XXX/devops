@@ -17,7 +17,7 @@ jobs:
 
       - name: Run Makefile
         run: |
-          cd ../dev/devops-master/cicd
+          cd ./cicd
           make 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -25,7 +25,7 @@ jobs:
           name: build-output
           path: | 
             ./bin
-            test
+            Test
 
   run-test:
     runs-on: ubuntu-latest
@@ -39,12 +39,12 @@ jobs:
           name: build-output
           path: ./build
       - name: Make test executable
-        run: chmod +x ./build/bin/test
+        run: chmod +x ./build/bin/Test
       - name: Run test
         id: test
         run: |
           cd ./build
-          ./bin/test
+          ./bin/Test
           if [ $? -eq 0 ]; then
             echo "status=success" >> $GITHUB_OUTPUT
           else
@@ -64,21 +64,21 @@ jobs:
           path: ./build
       - name: Create .deb package
         run: |
-          mkdir -p var9/DEBIAN
-          mkdir -p var9/usr/bin
-          cp -r ./build/bin var9/usr/bin
-          echo "Package: var9" > var9/DEBIAN/control
+          mkdir -p BubbleSort/DEBIAN
+          mkdir -p BubbleSort/usr/bin
+          cp -r ./build/bin BubbleSort/usr/bin
+          echo "Package: BubbleSort" > var9/DEBIAN/control
           echo "Version: 1.0" >> var9/DEBIAN/control
           echo "Section: utils" >> var9/DEBIAN/control
           echo "Priority: optional" >> var9/DEBIAN/control
           echo "Architecture: all" >> var9/DEBIAN/control
-          echo "Maintainer: zxc" >> var9/DEBIAN/control
-          echo "Description: var9" >> var9/DEBIAN/control
-          dpkg-deb --build var9
-        #mv var9.deb ./cicd
+          echo "Maintainer: Ya" >> var9/DEBIAN/control
+          echo "Description: BubbleSort" >> var9/DEBIAN/control
+          dpkg-deb --build BubbleSort
+        #mv BubbleSort.deb ./cicd
 
       - name: Upload .deb package
         uses: actions/upload-artifact@v4
         with:
           name: deb-package
-          path: var9.deb
+          path: BubbleSort.deb
