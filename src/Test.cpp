@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
-#include "bubblesort.h"
+#include "BubbleSort.h"
 
 bool CompareValues(std::vector<int> testValues, std::vector<int> expectedValues, int num)
 {
